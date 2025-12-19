@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Reine de Saba</title>
+    <link rel="canonical" href="https://larinedesabaethiopianrestaurant.com/">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General body and typography styling */
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            background-color: #f0ebe2; /* Softer, off-white background */
+            color: #333;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            color: #442C2E; /* Deep brown for headings */
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            margin: 0;
+            color: #D4AF37; /* Rich gold for the logo */
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* --- Header and Navigation Styles --- */
+        .main-header {
+            background-color: #2e1d1d; /* Darker, more elegant background */
+            color: #fff;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .main-header a.logo {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .main-nav .nav-list {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .main-nav .nav-list li {
+            margin-left: 2rem;
+        }
+
+        .main-nav .nav-list li a {
+            color: #dcdcdc; /* Lighter color for the text */
+            font-family: 'Cormorant Garamond', serif; /* Changed font */
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 400;
+            padding: 0.75rem 1rem;
+            position: relative;
+            transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        /* Active state for the current page */
+        .main-nav .nav-list li a.active {
+            color: #D4AF37;
+            font-weight: 700;
+            text-shadow: none;
+        }
+        
+        /* Underline for the active link */
+        .main-nav .nav-list li a.active::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: #D4AF37;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .main-nav .nav-list li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: #D4AF37;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: width 0.3s ease;
+        }
+
+        .main-nav .nav-list li a:not(.active):hover {
+            color: #D4AF37;
+            transform: scale(1.05);
+            font-weight: 700;
+            text-shadow: none;
+        }
+
+        .main-nav .nav-list li a:not(.active):hover::after {
+            width: 100%;
+        }
+        
+        /* --- Hamburger Menu (hidden by default) --- */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 20px;
+        }
+
+        .hamburger .bar {
+            width: 100%;
+            height: 3px;
+            background-color: #fff;
+            transition: all 0.3s ease;
+        }
+        
+        /* Hamburger menu animation */
+        .hamburger.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active .bar:nth-child(1) {
+            transform: translateY(8.5px) rotate(45deg);
+        }
+        .hamburger.active .bar:nth-child(3) {
+            transform: translateY(-8.5px) rotate(-45deg);
+        }
+
+        /* --- Main Content Section --- */
+        .main-container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+        
+        .hero-section {
+            text-align: center;
+            padding: 0;
+            background: #e8e0d8;
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+            height: 80vh;
+            width: 100%;
+            margin-bottom: 2rem; /* Added margin to separate from content below */
+        }
+
+        .hero-section .slideshow-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .hero-section .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .hero-section .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the image covers the section without cutting off */
+            border-radius: 12px;
+        }
+
+        .hero-section .slide.active {
+            opacity: 1;
+            z-index: 1;
+        }
+
+        .hero-section .caption {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-family: 'Cormorant Garamond', serif; /* Changed font to match headings */
+            font-size: 28px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px 20px;
+            border-radius: 6px;
+            z-index: 10;
+        }
+
+        .book-button-container {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .book-button {
+            display: block;
+            width: 100%; /* Makes button fill container horizontally */
+            max-width: 300px; /* Limits the max width on larger screens */
+            margin: 0 auto; /* Centers the button */
+            background-color: #D4AF37; /* Used the same gold color */
+            color: #2e1d1d; /* Dark brown text for better contrast */
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .book-button:hover {
+            background-color: #a07a0a; /* Darker gold on hover */
+            transform: translateY(-2px);
+        }
+        
+        .content-section {
+            background-color: #fff;
+            padding: 3rem; /* Increased padding for more space */
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            margin-top: 2rem;
+        }
+
+        .content-section h2 {
+            font-size: 2.5rem; /* Larger heading font size */
+            color: #D4AF37;
+            text-align: center;
+            margin-bottom: 1.5rem; /* Increased space below heading */
+            letter-spacing: 1px; /* Added letter-spacing for elegance */
+        }
+        
+        .content-section p {
+            font-family: 'Cormorant Garamond', serif; /* Changed font to a serif for a more classic feel */
+            font-size: 1.2rem; /* Slightly larger paragraph text */
+            font-weight: 400; /* Regular weight for readability */
+            text-align: justify;
+            line-height: 1.8; /* Increased line height for better readability */
+        }
+
+        /* --- Footer Styles --- */
+        .main-footer {
+            background-color: #2e1d1d; /* Darker background */
+            color: #fff;
+            text-align: center;
+            padding: 2.5rem 1rem; /* Adjusted padding */
+            margin-top: 3rem; /* Adjusted margin */
+            font-size: 0.9rem;
+            box-shadow: 0 -2px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* --- Media Queries for Mobile Responsiveness --- */
+        @media (max-width: 768px) {
+            .main-header {
+                padding: 1rem 1.5rem;
+            }
+
+            .main-nav {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: #2e1d1d; /* Consistent dark background */
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                z-index: 999;
+            }
+
+            .main-nav.active {
+                display: block;
+            }
+
+            .main-nav .nav-list {
+                flex-direction: column;
+                align-items: center;
+                padding: 1rem 0;
+            }
+
+            .main-nav .nav-list li {
+                margin: 0.5rem 0;
+                width: 100%;
+                text-align: center;
+            }
+
+            .main-nav .nav-list li a {
+                padding: 1rem 0;
+                display: block;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                font-size: 1.1rem;
+                font-family: 'Cormorant Garamond', serif; /* Applied font to mobile nav as well */
+            }
+            
+            .main-nav .nav-list li:last-child a {
+                border-bottom: none;
+            }
+
+            .main-nav .nav-list li a:hover {
+                background-color: #3e2828;
+            }
+            
+            .main-nav .nav-list li a::after {
+                display: none;
+            }
+            
+            /* Underline for the active link on mobile */
+            .main-nav .nav-list li a.active::after {
+                display: block;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+            
+            /* Responsive image and caption styling for mobile */
+            .hero-section {
+                height: 50vh; /* Reduced hero section height for mobile */
+            }
+
+            .hero-section .caption {
+                font-size: 1.5rem;
+                bottom: 10px;
+            }
+
+            /* Responsive button styling for smaller screens */
+            .book-button {
+                max-width: 100%;
+                padding: 1rem;
+                font-size: 1.1rem;
+            }
+            
+            .content-section {
+                padding: 2rem;
+            }
+
+            .content-section h2 {
+                font-size: 2rem;
+            }
+
+            .content-section p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <a href="/" class="logo">
+                      <h1>RESTAURANT LA REINE DE SABA
+               SPÉCIALITÉ ÉTHIOPIENNE</h1>
+        </a>
+        <nav class="main-nav">
+            <ul class="nav-list">
+  <li><a href="/" class="active" >Home</a></li>
+  <li><a href="/menu">Menu</a></li>
+  <li><a href="/booking">Book a Table</a></li>
+  <li><a href="/contact">Contact</a></li>
+</ul>
+        </nav>
+        <div class="hamburger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <main>
+            <section class="hero-section">
+                <div class="slideshow-container">
+                    <div class="slide active">
+                        <img src="chef_photo.JPG" alt="Authentic Ethiopian Cuisine">
+                        <div class="caption">Authentic Ethiopian Cuisine</div>
+                    </div>
+
+                    <div class="slide">
+                        <img src="foodpicture.png" alt="Welcome to La Reine de Saba">
+                        <div class="caption">Welcome to La Reine de Saba</div>
+                    </div>
+                </div>
+            </section>
+            
+            <div class="book-button-container">
+               <a href="/booking" class="book-button">Book a Table</a>
+            </div>
+
+            <section class="content-section">
+                <h2>Our Story</h2>
+                <p>Welcome to La Reine de Saba, where we bring the vibrant flavors and rich traditions of Ethiopia to Paris. Our journey began with a passion for sharing our culture through food, creating a warm and inviting atmosphere for all our guests. We believe that every dish tells a story, and we invite you to experience the authentic taste of Ethiopia, from our spicy Doro Wat to our comforting vegetarian platters, all served with traditional injera bread.</p>
+                <p>At La Reine de Saba, we source the freshest ingredients and use traditional cooking methods passed down through generations. Our commitment to quality and authenticity ensures a dining experience that is both memorable and delicious. Come and join us to discover a world of culinary delights and cultural richness.</p>
+            </section>
+        </main>
+    </div>
+
+    <footer class="main-footer">
+        <p>© 2025 RESTAURANT LA REINE DE SABA
+               SPÉCIALITÉ ÉTHIOPIENNE. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // JavaScript for the mobile hamburger menu
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.main-nav');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // JavaScript for the slideshow
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let i;
+            let slides = document.getElementsByClassName("slide");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].classList.remove('active');
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1 }
+            slides[slideIndex - 1].classList.add('active');
+            setTimeout(showSlides, 5000); // Change image every 5 seconds
+        }
+    </script>
+</body>
+</html>

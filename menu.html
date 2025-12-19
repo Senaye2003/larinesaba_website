@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore the authentic Ethiopian menu at La Reine de Saba in Paris, featuring Doro Wat, Ye-Siga Tibs, and vegetarian options.">
+    <meta name="keywords" content="Ethiopian menu, La Reine de Saba, Paris dining, Doro Wat, Ye-Siga Tibs, vegetarian food">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <title>La Reine de Saba - Menu</title>
+    <link rel="canonical" href="https://larinedesabaethiopianrestaurant.com/menu">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General body and typography styling */
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            background-color: #f0ebe2; /* Softer, off-white background */
+            color: #333;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            color: #442C2E; /* Deep brown for headings */
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        /* --- Header and Navigation Styles --- */
+        .main-header {
+            background-color: #2e1d1d; /* Darker, more elegant background */
+            color: #fff;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .main-header a.logo {
+            text-decoration: none;
+            color: #fff;
+        }
+        
+        .main-header .logo h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-style: normal;
+            color: #D4AF37; /* Rich gold for the logo */
+            letter-spacing: 2px;
+        }
+
+        .main-nav .nav-list {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .main-nav .nav-list li {
+            margin-left: 2rem;
+        }
+
+        .main-nav .nav-list li a {
+            color: #dcdcdc; /* Lighter color for the text */
+            font-family: 'Cormorant Garamond', serif; /* Changed font to Cormorant Garamond */
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 400;
+            padding: 0.75rem 1rem;
+            position: relative;
+            transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        /* Active state for the current page */
+        .main-nav .nav-list li a.active {
+            color: #D4AF37;
+            font-weight: 700;
+            text-shadow: none;
+        }
+        
+        /* Underline for the active link */
+        .main-nav .nav-list li a.active::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: #D4AF37;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .main-nav .nav-list li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: #D4AF37;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: width 0.3s ease;
+        }
+
+        .main-nav .nav-list li a:not(.active):hover {
+            color: #D4AF37;
+            transform: scale(1.05);
+            font-weight: 700;
+            text-shadow: none;
+        }
+
+        .main-nav .nav-list li a:not(.active):hover::after {
+            width: 100%;
+        }
+        
+        /* --- Hamburger Menu (hidden by default) --- */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 20px;
+        }
+
+        .hamburger .bar {
+            width: 100%;
+            height: 3px;
+            background-color: #fff;
+            transition: all 0.3s ease;
+        }
+        
+        /* Hamburger menu animation */
+        .hamburger.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active .bar:nth-child(1) {
+            transform: translateY(8.5px) rotate(45deg);
+        }
+        .hamburger.active .bar:nth-child(3) {
+            transform: translateY(-8.5px) rotate(-45deg);
+        }
+
+        /* --- Main Content Section --- */
+        .main-container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        
+        /* Menu Specific Styles */
+        .menu-section {
+            background-color: #fff;
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .menu-section h1 {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 0.5rem;
+            color: #D4AF37;
+        }
+        
+        .menu-section > p {
+            text-align: center;
+            font-style: italic;
+            margin-bottom: 2.5rem;
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .menu-section h3 {
+            font-size: 1.8rem;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #D4AF37;
+            padding-bottom: 0.5rem;
+            text-align: center;
+        }
+        
+        .menu-section .category-title {
+            text-align: left;
+            border-bottom: 2px solid #D4AF37;
+            display: inline-block;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .menu-item {
+            background-color: #fdfaf6;
+            border: 1px solid #e0d8cc;
+            padding: 1.8rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu-item h4 {
+            margin-top: 0;
+            font-size: 1.3rem;
+            color: #442C2E;
+        }
+        
+        .menu-item p.description {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .menu-item .price {
+            font-weight: 700;
+            color: #D4AF37;
+            font-size: 1.2rem;
+            text-align: right;
+        }
+        
+        /* Pricing Section Specific Styles */
+        .pricing-section {
+            background-color: #fff;
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+        }
+        
+        .pricing-section h3 {
+            font-size: 2rem;
+            color: #D4AF37;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .price-card {
+            background-color: #fdfaf6;
+            border: 1px solid #e0d8cc;
+            padding: 1.8rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .price-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .price-card p {
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #442C2E;
+        }
+
+        .price-card strong {
+            font-size: 1.5rem;
+            color: #D4AF37;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        /* --- Footer Styles --- */
+        .main-footer {
+            background-color: #2e1d1d;
+            color: #fff;
+            text-align: center;
+            padding: 2.5rem 1rem;
+            margin-top: 3rem;
+            font-size: 0.9rem;
+            box-shadow: 0 -2px 15px rgba(0, 0, 0, 0.3);
+        }
+        /* No more footer-links styles since the section is removed */
+
+        /* --- Media Queries for Mobile Responsiveness --- */
+        @media (max-width: 768px) {
+            .main-header {
+                padding: 1rem 1.5rem;
+            }
+            .main-header .logo h1 {
+                font-size: 1.5rem;
+            }
+
+            .main-nav {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: #2e1d1d;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                z-index: 999;
+            }
+
+            .main-nav.active {
+                display: block;
+            }
+
+            .main-nav .nav-list {
+                flex-direction: column;
+                align-items: center;
+                padding: 1rem 0;
+            }
+
+            .main-nav .nav-list li {
+                margin: 0.5rem 0;
+                width: 100%;
+                text-align: center;
+            }
+
+            .main-nav .nav-list li a {
+                padding: 1rem 0;
+                display: block;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                font-size: 1.1rem;
+                font-family: 'Cormorant Garamond', serif; /* Applied font to mobile nav as well */
+            }
+            
+            .main-nav .nav-list li:last-child a {
+                border-bottom: none;
+            }
+
+            .main-nav .nav-list li a:hover {
+                background-color: #3e2828;
+            }
+            
+            .main-nav .nav-list li a::after {
+                display: none;
+            }
+            
+            /* Underline for the active link on mobile */
+            .main-nav .nav-list li a.active::after {
+                display: block;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+            
+            .caption {
+                font-size: 1.5rem;
+            }
+
+            .main-container {
+                padding: 0 1rem;
+            }
+
+            .menu-section, .pricing-section {
+                padding: 1.5rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h3 {
+                font-size: 1.5rem;
+            }
+            
+            /* Further mobile-specific adjustments */
+            .menu-grid, .pricing-grid {
+                gap: 1.5rem;
+            }
+            
+            .menu-item {
+                padding: 1.2rem;
+            }
+            
+            .menu-item h4 {
+                font-size: 1.1rem;
+            }
+            
+            .price-card {
+                padding: 1.2rem;
+            }
+            
+            .price-card p {
+                font-size: 1rem;
+            }
+            
+            .price-card strong {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <a href="/" class="logo">
+                     <h1>RESTAURANT LA REINE DE SABA
+               SPÉCIALITÉ ÉTHIOPIENNE</h1>
+        </a>
+        <nav class="main-nav">
+            <ul class="nav-list">
+  <li><a href="/">Home</a></li>
+  <li><a href="/menu" class="active" >Menu</a></li>
+  <li><a href="/booking">Book a Table</a></li>
+  <li><a href="/contact">Contact</a></li>
+</ul>
+        </nav>
+        <div class="hamburger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <main>
+            <section class="menu-section">
+                <h1>Our Menu</h1>
+                <p>Authentic Ethiopian flavors made with love and tradition.</p>
+
+                <h3 class="category-title">Entrées (Starters)</h3>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <h4>Agila(purée de lentilles) ou Samoussa</h4>
+                        <p class="description">Purée de lentilles aux épices (azifa) ou chausson croustillant farci (samoussa) / Spiced lentil purée (azifa) or crispy stuffed pastry (samosa)</p>
+                        <p class="price">5€</p>
+                    </div>
+                </div>
+
+                <h3 class="category-title">Viandes (Meats)</h3>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <h4>ክትፎ (kït fo)</h4>
+                        <p class="description">Émincé de boeuf (cuit ou cru) aux épices / Sliced beef (cooked or raw) with spices</p>
+                        <p class="price">17€</p>
+                    </div>
+                    <div class="menu-item">
+                        <h4>የዶሮ ቀይ ወጥ (yé doro kèy ouat)</h4>
+                        <p class="description">Morceaux de poulet en sauce avec oeuf dur (épicé) / Pieces of spicy chicken in sauce with boiled egg</p>
+                        <p class="price">16€</p>
+                    </div>
+                    <div class="menu-item">
+                        <h4>የዶሮ አልጫ (yé doro alècha)</h4>
+                        <p class="description">Morceaux de poulet en sauce avec oeuf dur (non épicé) / Pieces of not spicy chicken in sauce with boiled egg</p>
+                        <p class="price">16€</p>
+                    </div>
+                    <div class="menu-item">
+                        <h4>የበሬ አልጫ (yé béré alècha)</h4>
+                        <p class="description">Ragoût de boeuf (non épicé) / Stewed beef (not spicy)</p>
+                        <p class="price">16€</p>
+                    </div>
+                    <div class="menu-item">
+                        <h4>የበሬ ቀይ ወጥ (yé béré kèy ouat)</h4>
+                        <p class="description">Ragoût de boeuf (épicé) / Stewed beef (spicy)</p>
+                        <p class="price">16€</p>
+                    </div>
+                    <div class="menu-item">
+                        <h4>የበግ ጥብስ (yé bègue tïbs)</h4>
+                        <p class="description">Mouton grillé aux oignons, herbes et piments verts / Grilled sheep with onions, mixed herbs, piments</p>
+                        <p class="price">18€</p>
+                    </div>
+                    <div class="menu-item">
+                        <h4>የበሬ ጥብስ (yé béré tïbs)</h4>
+                        <p class="description">Boeuf grillé aux oignons, herbes et piments verts / Grilled beef with onions, mixed herbs and piments</p>
+                        <p class="price">17€</p>
+                    </div>
+                    <div class="menu-item">
+                        <h4>ዝልዝል ጥብስ (zèlèzlè tïbs)</h4>
+                        <p class="description">Viande marinée aux épices éthiopiennes / Marinated meat with Ethiopian spices</p>
+                        <p class="price">18€</p>
+                    </div>
+                    <div class="menu-item">
+                        <h4>ምንቸት አብሽ (mènchèt abèsh)</h4>
+                        <p class="description">Viande hachée en sauce / Minced meat in sauce</p>
+                        <p class="price">15€</p>
+                    </div>
+                </div>
+
+                <h3 class="category-title">Légumes et Poissons (Vegetables &amp; Fish)</h3>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <h4>ጎመን (gomèn)</h4>
+                        <p class="description">Choux aux épices / Spiced cabbage</p>
+                        <p class="price">9€</p>
+                    </div>
+                    <div class="menu-item">
+                        <h4>የአትክልት ወጥ (yé atkelte ouat)</h4>
+                        <p class="description">Assortiment de légumes / Assorted vegetables (lentilles, choux aux épices, épinards, haricots verts aux épices, sauce aux pois cassés)</p>
+                        <p class="price">17€</p>
+                    </div>
+                    <div class="menu-item">
+                        <h4>የምስር ቀይ ወጥ (yé mèssèr kèy ouat)</h4>
+                        <p class="description">Sauce aux lentilles épicées / Spiced lentil sauce</p>
+                        <p class="price">11€</p>
+                    </div>
+                    <div class="menu-item">
+                        <h4>የአተር ክክ (yé atèr këkh)</h4>
+                        <p class="description">Sauce aux pois cassés / Split peas sauce</p>
+                        <p class="price">10€</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <h4>ሰላጣ (salata)</h4>
+                        <p class="description">Salade éthiopienne (salade verte, tomates, oignons) / Ethiopian salad (green salad, tomatoes, onions)</p>
+                        <p class="price">8€</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <h4>አሳ (ässa)</h4>
+                        <p class="description">Ragoût de poisson avec salade / Fish stewed with salad</p>
+                        <p class="price">16€</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <h4>ሸሮ (Shero)</h4>
+                        <p class="description">Soupe spéciale de pois chiches éthiopienne / Special Ethiopian chickpea soup</p>
+                        <p class="price">18€</p>
+                    </div>
+                    <div class="menu-item">
+                        <h4>ጎረድ፡ጎረድ (Gored gored)</h4>
+                        <p class="description">Boeuf cru coupé en petits cubes avec sauce piquante / Raw beef cut into small cubes with hot sauce</p>
+                        <p class="price">18€</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <h4>በያይነቱ (Bayya Aynätu)</h4>
+                        <p class="description">Plat traditionnel éthiopien à partager (assortiment de viandes et légumes sur injera) / Traditional Ethiopian platter to share (assortment of meats and vegetables on injera).</p>
+                        <p class="price">15€</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <h4>Poisson à l'Éthiopienne</h4>
+                        <p class="description">Poisson frais préparé à l'éthiopienne (selon arrivage) / Fresh fish prepared in traditional Ethiopian style (subject to availability)</p>
+                        <p class="price">15€</p>
+                    </div>
+                </div>
+
+                <h3 class="category-title">Desserts</h3>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <h4>ፍራፍሬ (Salade de fruits frais)</h4>
+                        <p class="description">Salade de fruits de saison, fraîche et légère / Fresh seasonal fruit salad</p>
+                        <p class="price">6€</p>
+                    </div>
+                    <div class="menu-item">
+                        <h4>Gâteau au Chocolat de Malo</h4>
+                        <p class="price">5€</p>
+                    </div>
+                  
+                    <div class="menu-item">
+                        <h4>አይስ፡ክሬም (aiss krim)</h4>
+                        <p class="description">Glaces de saison / Ice-cream — mangue, noix de coco, melon, fruits de la passion, chocolat, vanille, café, rhum raisin, praline, fraise, cassis.</p>
+                        <p class="price">4€</p>
+                    </div>
+                </div>
+<h3 class="category-title">Boissons (Drinks)</h3>
+<div class="menu-grid">
+
+  <div class="menu-item">
+    <h4>Café (Coffee)</h4>
+    <p class="description">Café éthiopien traditionnel / Traditional Ethiopian coffee</p>
+    <p class="price">3€</p>
+  </div>
+
+  <div class="menu-item">
+    <h4>Thé (Tea)</h4>
+    <p class="description">Thé éthiopien nature ou parfumé / Plain or flavored Ethiopian tea</p>
+    <p class="price">3€</p>
+  </div>
+
+  <div class="menu-item">
+    <h4>Jus de fruits (Fruit Juices)</h4>
+    <p class="description">Orange, abricot, ananas, tomate, pamplemousse / Orange, apricot, pineapple, tomato, grapefruit</p>
+    <p class="price">4€</p>
+  </div>
+
+  <div class="menu-item">
+    <h4>Boissons gazeuses (Soft Drinks)</h4>
+    <p class="description">Coca-Cola, Orangina, Schweppes / Assorted soft drinks</p>
+    <p class="price">4€</p>
+  </div>
+
+
+  <div class="menu-item">
+    <h4>Eaux minérales (Mineral Water)</h4>
+    <p class="description">Evian, Badoit, Vittel, Perrier — demi ou bouteille / Still or sparkling, half or full bottle</p>
+    <p class="price">3–4€</p>
+  </div>
+
+ 
+
+  <div class="menu-item"><h4>Martini</h4><p class="price">3.50€</p></div>
+  <div class="menu-item"><h4>Porto</h4><p class="price">3.50€</p></div>
+  <div class="menu-item"><h4>Pastis</h4><p class="price">4€</p></div>
+  <div class="menu-item"><h4>Vodka</h4><p class="price">4€</p></div>
+  <div class="menu-item"><h4>Kir</h4><p class="price">4€</p></div>
+  <div class="menu-item"><h4>Cognac</h4><p class="price">4€</p></div>
+  <div class="menu-item"><h4>Baileys</h4><p class="price">4€</p></div>
+  <div class="menu-item"><h4>Rhum</h4><p class="price">4€</p></div>
+  <div class="menu-item"><h4>Calvados</h4><p class="price">4€</p></div>
+  <div class="menu-item"><h4>Jet</h4><p class="price">4€</p></div>
+  <div class="menu-item"><h4>Cocktail de la maison</h4><p class="price">4€</p></div>
+  <div class="menu-item"><h4>Gin</h4><p class="price">5€</p></div>
+  <div class="menu-item"><h4>Suze</h4><p class="price">5€</p></div>
+  <div class="menu-item"><h4>Whisky</h4><p class="price">5€</p></div>
+
+    <div class="menu-item">
+    <h4>Heineken 33cl</h4>
+    <p class="description">Bière blonde classique / Classic pale lager</p>
+    <p class="price">4€</p>
+    </div>
+
+    <div class="menu-item">
+    <h4>1664</h4>
+    <p class="description">Bière française premium / Premium French beer</p>
+    <p class="price">4€</p>
+    </div>
+
+    <div class="menu-item">
+    <h4>Pelforth</h4>
+    <p class="description">Bière ambrée française / French amber beer</p>
+    <p class="price">4.50€</p>
+    </div>
+    </div>
+
+<h3 class="category-title">Vins (Wines)</h3>
+<div class="menu-grid">
+
+  <div class="menu-item">
+    <h4>Vaqueyras (Rouge)</h4>
+    <p class="description">Bouteille 21€ / Demi 14€</p>
+    <p class="price">21€</p>
+  </div>
+
+  <div class="menu-item">
+    <h4>Bourgogne (Rouge)</h4>
+    <p class="description">Bouteille 18€ / Demi 11€</p>
+    <p class="price">18€</p>
+  </div>
+
+  <div class="menu-item">
+    <h4>Gigondas (Rouge)</h4>
+    <p class="description">Bouteille 24€ / Demi 14€</p>
+    <p class="price">24€</p>
+  </div>
+
+  <div class="menu-item">
+    <h4>Côtes du Rhône Jonquiers (Rouge)</h4>
+    <p class="description">Bouteille 17€ / Demi 10€</p>
+    <p class="price">17€</p>
+  </div>
+
+  <div class="menu-item">
+    <h4>Bordeaux (Rouge)</h4>
+    <p class="description">Bouteille 17€ / Demi 10€</p>
+    <p class="price">17€</p>
+  </div>
+
+  <div class="menu-item">
+    <h4>Le p'tit Buisse (Rouge)</h4>
+    <p class="description">Bouteille 27€</p>
+    <p class="price">27€</p>
+  </div>
+
+  <div class="menu-item">
+    <h4>Côtes de Provence (Rosé)</h4>
+    <p class="description">Bouteille 17€ / Demi 10€</p>
+    <p class="price">17€</p>
+  </div>
+
+  <div class="menu-item">
+    <h4>Tavel (Rosé)</h4>
+    <p class="description">Bouteille 18€ / Demi 10€</p>
+    <p class="price">18€</p>
+  </div>
+
+  <div class="menu-item">
+    <h4>Muscadet (Blanc)</h4>
+    <p class="description">Bouteille 16€ / Demi 9€</p>
+    <p class="price">16€</p>
+  </div>
+
+  <div class="menu-item">
+    <h4>Bourgogne (Blanc)</h4>
+    <p class="description">Bouteille 16€ / Demi 9€</p>
+    <p class="price">16€</p>
+  </div>
+
+  <div class="menu-item">
+    <h4>Bordeaux (Blanc)</h4>
+    <p class="description">Bouteille 13€</p>
+    <p class="price">13€</p>
+  </div>
+
+   <div class="menu-item">
+    <h4>Vaqueyras (Rouge)</h4>
+    <p class="description">Bouteille 21€ / Demi 14€</p>
+    <p class="price">21€</p>
+  </div>
+
+  <div class="menu-item">
+    <h4>Bourgogne (Rouge)</h4>
+    <p class="description">Bouteille 18€ / Demi 11€</p>
+    <p class="price">18€</p>
+  </div>
+
+  <div class="menu-item">
+    <h4>Gigondas (Rouge)</h4>
+    <p class="description">Bouteille 24€ / Demi 14€</p>
+    <p class="price">24€</p>
+  </div>
+
+  <div class="menu-item">
+    <h4>Côtes du Rhône Jonquiers (Rouge)</h4>
+    <p class="description">Bouteille 17€ / Demi 10€</p>
+    <p class="price">17€</p>
+  </div>
+
+  <div class="menu-item">
+    <h4>Bordeaux (Rouge)</h4>
+    <p class="description">Bouteille 17€ / Demi 10€</p>
+    <p class="price">17€</p>
+  </div>
+  <div class="menu-item">
+    <h4>Le p'tit Buisse (Rouge)</h4>
+    <p class="description">Bouteille 27€</p>
+    <p class="price">27€</p>
+  </div>
+
+  <div class="menu-item">
+    <h4>Côtes de Provence (Rosé)</h4>
+    <p class="description">Bouteille 17€ / Demi 10€</p>
+    <p class="price">17€</p>
+  </div>
+
+  <div class="menu-item">
+    <h4>Tavel (Rosé)</h4>
+    <p class="description">Bouteille 18€ / Demi 10€</p>
+    <p class="price">18€</p>
+  </div>
+
+  <div class="menu-item">
+    <h4>Muscadet (Blanc)</h4>
+    <p class="description">Bouteille 16€ / Demi 9€</p>
+    <p class="price">16€</p>
+  </div>
+
+  <div class="menu-item">
+    <h4>Bourgogne (Blanc)</h4>
+    <p class="description">Bouteille 16€ / Demi 9€</p>
+    <p class="price">16€</p>
+  </div>
+
+  <div class="menu-item">
+    <h4>Bordeaux (Blanc)</h4>
+    <p class="description">Bouteille 13€</p>
+    <p class="price">13€</p>
+  </div>
+
+
+</div>
+
+ 
+  
+
+  
+
+</div>
+
+    </div>
+
+
+            </section>
+        </main>
+    </div>
+
+    <footer class="main-footer">
+        <p>© 2025 RESTAURANT LA REINE DE SABA
+               SPÉCIALITÉ ÉTHIOPIENNE. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // JavaScript for the mobile hamburger menu
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.main-nav');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

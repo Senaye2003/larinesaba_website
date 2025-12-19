@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Reine de Saba - Book a Table</title>
+    <link rel="canonical" href="https://larinedesabaethiopianrestaurant.com/booking">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General body and typography styling */
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            background-color: #f0ebe2; /* Softer, off-white background */
+            color: #333;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            color: #442C2E; /* Deep brown for headings */
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            margin: 0;
+            color: #D4AF37; /* Rich gold for the logo */
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* --- Header and Navigation Styles --- */
+        .main-header {
+            background-color: #2e1d1d; /* Darker, more elegant background */
+            color: #fff;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .main-header a.logo {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .main-nav .nav-list {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .main-nav .nav-list li {
+            margin-left: 2rem;
+        }
+
+        .main-nav .nav-list li a {
+            color: #dcdcdc; /* Lighter color for the text */
+            font-family: 'Cormorant Garamond', serif; /* Changed font */
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 400;
+            padding: 0.75rem 1rem;
+            position: relative;
+            transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        /* Active state for the current page */
+        .main-nav .nav-list li a.active {
+            color: #D4AF37;
+            font-weight: 700;
+            text-shadow: none;
+        }
+        
+        /* Underline for the active link */
+        .main-nav .nav-list li a.active::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: #D4AF37;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .main-nav .nav-list li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: #D4AF37;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: width 0.3s ease;
+        }
+
+        .main-nav .nav-list li a:not(.active):hover {
+            color: #D4AF37;
+            transform: scale(1.05);
+            font-weight: 700;
+            text-shadow: none;
+        }
+
+        .main-nav .nav-list li a:not(.active):hover::after {
+            width: 100%;
+        }
+        
+        /* --- Hamburger Menu (hidden by default) --- */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 20px;
+        }
+
+        .hamburger .bar {
+            width: 100%;
+            height: 3px;
+            background-color: #fff;
+            transition: all 0.3s ease;
+        }
+        
+        /* Hamburger menu animation */
+        .hamburger.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active .bar:nth-child(1) {
+            transform: translateY(8.5px) rotate(45deg);
+        }
+        .hamburger.active .bar:nth-child(3) {
+            transform: translateY(-8.5px) rotate(-45deg);
+        }
+        
+        /* --- Main Content Section --- */
+        .main-container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .booking-section {
+            background-color: #fff;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+
+        .booking-section h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: #D4AF37;
+        }
+
+        .booking-section p {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        /* --- Form Styling --- */
+        #booking-form {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            text-align: left;
+        }
+
+        #booking-form label {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: block;
+            color: #442C2E;
+        }
+
+        #booking-form input,
+        #booking-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #booking-form input:focus,
+        #booking-form textarea:focus {
+            outline: none;
+            border-color: #D4AF37;
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+        }
+
+        #booking-form textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        #booking-form button {
+            background-color: #D4AF37;
+            color: #2e1d1d;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 1rem;
+        }
+
+        #booking-form button:hover {
+            background-color: #a07a0a;
+            transform: translateY(-2px);
+        }
+
+        /* --- Footer Styles --- */
+        .main-footer {
+            background-color: #2e1d1d; /* Darker background */
+            color: #fff;
+            text-align: center;
+            padding: 2.5rem 1rem; /* Adjusted padding */
+            margin-top: 3rem; /* Adjusted margin */
+            font-size: 0.9rem;
+            box-shadow: 0 -2px 15px rgba(0, 0, 0, 0.3);
+        }
+        .success-message {
+            display: none;
+            background-color: #e7f8ec;
+            border: 1px solid #4CAF50;
+            color: #256b38;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-weight: 600;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .success-message.show {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Media Queries for Mobile Responsiveness --- */
+        @media (max-width: 768px) {
+            .main-header {
+                padding: 1rem 1.5rem;
+            }
+
+            .main-nav {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: #2e1d1d; /* Consistent dark background */
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                z-index: 999;
+            }
+
+            .main-nav.active {
+                display: block;
+            }
+
+            .main-nav .nav-list {
+                flex-direction: column;
+                align-items: center;
+                padding: 1rem 0;
+            }
+
+            .main-nav .nav-list li {
+                margin: 0.5rem 0;
+                width: 100%;
+                text-align: center;
+            }
+
+            .main-nav .nav-list li a {
+                padding: 1rem 0;
+                display: block;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                font-size: 1.1rem;
+                font-family: 'Cormorant Garamond', serif; /* Applied font to mobile nav as well */
+            }
+            
+            .main-nav .nav-list li:last-child a {
+                border-bottom: none;
+            }
+
+            .main-nav .nav-list li a:hover {
+                background-color: #3e2828;
+            }
+            
+            .main-nav .nav-list li a::after {
+                display: none;
+            }
+            
+            .main-nav .nav-list li a.active::after {
+                display: block;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+            
+            .booking-section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <a href="/" class="logo">
+            <h1>RESTAURANT LA REINE DE SABA
+               SPÉCIALITÉ ÉTHIOPIENNE</h1>
+        </a>
+        <nav class="main-nav">
+            <ul class="nav-list">
+  <li><a href="/">Home</a></li>
+  <li><a href="/menu">Menu</a></li>
+  <li><a href="/booking" class="active" >Book a Table</a></li>
+  <li><a href="/contact">Contact</a></li>
+</ul>
+        </nav>
+        <div class="hamburger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <main class="booking-section">
+            <h2>Reserve Your Table</h2>
+            <p>Enjoy an authentic Ethiopian dining experience. Use the form below to book your table.</p>
+
+            <form id="booking-form" action="https://formspree.io/f/xovllbde" method="POST">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="date">Date</label>
+                <input type="date" id="date" name="date" required>
+
+                <label for="time">Time</label>
+                <input type="time" id="time" name="time" required>
+
+                <label for="guests">Number of Guests</label>
+                <input type="number" id="guests" name="guests" min="1" required>
+
+                <label for="requests">Special Requests</label>
+                <textarea id="requests" name="requests"></textarea>
+
+                <button type="submit">Submit Reservation</button>
+            </form>
+        </main>
+    </div>
+    <div id="success-message" class="success-message">
+            ✅ Your table has been successfully reserved! We look forward to welcoming you.
+    </div>
+
+    <footer class="main-footer">
+        <p>© 2025 RESTAURANT LA REINE DE SABA
+               SPÉCIALITÉ ÉTHIOPIENNE. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.main-nav');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+  const form = document.getElementById('booking-form');
+  const successMessage = document.getElementById('success-message');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    const formData = new FormData(form);
+
+    fetch(form.action, {
+      method: form.method,
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(response => {
+      if (response.ok) {
+        successMessage.classList.add('show');
+        successMessage.textContent = '✅ Your table has been successfully reserved! We look forward to welcoming you.';
+        form.reset();
+
+        // Hide automatically after 5 seconds
+        setTimeout(() => {
+          successMessage.classList.remove('show');
+          setTimeout(() => successMessage.style.display = 'none', 500);
+        }, 5000);
+      } else {
+        successMessage.classList.add('show');
+        successMessage.style.backgroundColor = '#fdecea';
+        successMessage.style.borderColor = '#f44336';
+        successMessage.style.color = '#a12622';
+        successMessage.textContent = '⚠️ Something went wrong. Please try again later.';
+      }
+    });
+  });
+
+    </script>
+</body>
+</html>

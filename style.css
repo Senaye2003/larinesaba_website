@@ -1,0 +1,419 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f8f4ee;
+  color: #333;
+  line-height: 1.7;
+}
+
+header, footer {
+  background: #2f2414;
+  color: white;
+  text-align: center;
+  padding: 1.5em 1em;
+}
+
+header h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 42px;
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 1em 0 0;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 17px;
+  padding: 12px 22px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+nav a:hover {
+  background-color: #d32f2f;
+  transform: scale(1.03);
+}
+
+main {
+  padding: 2.5em 1em;
+  max-width: 900px;
+  margin: auto;
+}
+
+h2, h3 {
+  font-family: 'Montserrat', sans-serif;
+  color: #2f2414;
+  margin-bottom: 0.6em;
+}
+
+h2 {
+  font-size: 34px;
+  text-align: center;
+}
+
+h3 {
+  font-size: 26px;
+  border-bottom: 2px solid #d32f2f;
+  padding-bottom: 0.4em;
+}
+
+.hero-section {
+  height: 1200px; /* Keep for desktop */
+  width: 100%; /* Ensure full width */
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section .slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Keep this to cover the area */
+  object-position: center; /* Center the image */
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    height: 70vw; /* Use viewport width for proportional height (adjust as needed) */
+    min-height: 200px; /* Minimum height to avoid being too small */
+    max-height: 400px; /* Maximum height to prevent oversized images */
+  }
+
+  .hero-section .slide img {
+    object-fit: contain; /* Use contain to avoid cropping, or keep cover if preferred */
+  }
+
+  .hero-section .caption {
+    font-size: 16px; /* Slightly smaller for very small screens */
+    bottom: 15px; /* More space from bottom */
+    padding: 8px 16px; /* Adjust padding for mobile */
+  }
+}
+
+.hero-section {
+  text-align: center;
+  padding: 0;
+  background: #e8e0d8;
+  border-radius: 12px;
+  margin-bottom: 2em;
+  position: relative;
+  overflow: hidden;
+  height: 1200px; /* Fixed height to ensure full visibility */
+  width: auto;
+}
+
+.hero-section .slideshow-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.hero-section .slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.hero-section .slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the section without cutting off */
+  border-radius: 12px;
+}
+
+.hero-section .slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.hero-section .caption {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 28px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px 20px;
+  border-radius: 6px;
+  z-index: 10;
+}
+
+.hero-section button {
+  position: relative;
+  z-index: 10;
+  display: block;
+  margin: 1.5em auto 0;
+  padding: 14px 28px;
+  font-size: 18px;
+}
+
+.menu-section {
+  background: white;
+  border-radius: 12px;
+  padding: 2.5em;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5em;
+}
+
+.menu-item {
+  background: #f8f4ee;
+  border-radius: 10px;
+  padding: 1.2em;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.menu-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.menu-item img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1em;
+}
+
+.menu-item h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  margin: 0.5em 0 0.3em;
+}
+
+.menu-item p {
+  font-size: 15px;
+  margin: 0 0 0.5em;
+}
+
+.menu-item .price {
+  font-weight: bold;
+  color: #d32f2f;
+  font-size: 18px;
+}
+
+.booking-section, .contact-section {
+  background: white;
+  border-radius: 12px;
+  padding: 2.5em;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+  margin-bottom: 2em;
+}
+
+form label {
+  font-weight: bold;
+  color: #2f2414;
+  display: block;
+  margin-bottom: 0.4em;
+}
+
+.book-button {
+  background: linear-gradient(45deg, #ff6a00, #ee0979);
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(22, 16, 19, 0.5);
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: block; /* Ensure it behaves as a block element */
+  margin: 1.5em auto; /* Center the button */
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .book-button {
+    padding: 10px 20px; /* Slightly smaller padding */
+    font-size: 16px; /* Smaller font for mobile */
+    max-width: 200px; /* Limit width to avoid stretching */
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    height: 40vw; /* Further adjust height for very small screens */
+    min-height: 150px;
+  }
+
+  .hero-section .caption {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+
+  .book-button {
+    font-size: 14px;
+    padding: 8px 16px;
+    max-width: 160px;
+  }
+
+  form input, form textarea {
+    font-size: 14px; /* Smaller inputs for small screens */
+    padding: 10px;
+  }
+}
+
+form input, form textarea {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.3s ease;
+}
+
+form input:focus, form textarea:focus {
+  border-color: #d32f2f;
+}
+
+form button {
+  background-color: #d32f2f;
+  color: white;
+  padding: 14px;
+  font-size: 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 1em;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+form button:hover {
+  background-color: #b71c1c;
+  transform: scale(1.02);
+}
+
+iframe {
+  width: 100%;
+  height: 350px;
+  border-radius: 12px;
+  margin-top: 1em;
+}
+
+footer p {
+  font-size: 14px;
+  margin: 0;
+}
+
+.book-button {
+  background: linear-gradient(45deg, #ff6a00, #ee0979);
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(22, 16, 19, 0.5);
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-left: 350px;
+}
+
+.book-button:hover {
+  background: linear-gradient(45deg, #ee0979, #ff6a00);
+  box-shadow: 0 10px 20px rgba(238, 9, 121, 0.7);
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-section {
+    height: 300px; /* Adjusted for smaller screens */
+  }
+
+  .hero-section .caption {
+    font-size: 20px;
+    bottom: 10px;
+  }
+
+  .hero-section button {
+    margin-top: 1em;
+  }
+}
+
+/* Slideshow styling */
+.fade {
+  animation: fade 5s infinite;
+}
+
+@keyframes fade {
+  0% {opacity: 0;}
+  20% {opacity: 1;}
+  40% {opacity: 1;}
+  60% {opacity: 0;}
+}
+
+.slide:nth-child(1) { animation-delay: 0s; }
+.slide:nth-child(2) { animation-delay: 2s; }
+.slide:nth-child(3) { animation-delay: 4s; }
+
+nav {
+    background-color: #f4e1d2; /* Warm beige to match Ethiopian aesthetic */
+    padding: 1em 2em;
+    text-align: center;
+    border-top: 5px solid #d4a017; /* Goldish-yellow border inspired by menu frame */
+    border-bottom: 5px solid #d4a017;
+}
+
+nav a {
+    color: #4a2c2a; /* Dark brown for text, resembling traditional Ethiopian colors */
+    text-decoration: none;
+    margin: 0 1.5em;
+    font-family: 'Arial', sans-serif; /* Simple font, can be swapped for a cultural font like Amharic-inspired if available */
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #d4a017; /* Goldish-yellow on hover for interactive feel */
+}
+
+nav a:first-child {
+    margin-left: 0;
+}
+
+nav a:last-child {
+    margin-right: 0;
+}
