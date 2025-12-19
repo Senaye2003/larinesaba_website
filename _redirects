@@ -1,0 +1,9 @@
+# Serve clean URLs
+/menu     /menu.html     200
+/booking  /booking.html  200
+/contact  /contact.html  200
+
+# Redirect old .html URLs to clean ones
+/menu.html     /menu     301
+/booking.html  /booking  301
+/contact.html  /contact  301
