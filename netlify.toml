@@ -1,0 +1,32 @@
+[[redirects]]
+  from = "/menu.html"
+  to = "/menu"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/booking.html"
+  to = "/booking"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/contact.html"
+  to = "/contact"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/menu"
+  to = "/menu.html"
+  status = 200
+
+[[redirects]]
+  from = "/booking"
+  to = "/booking.html"
+  status = 200
+
+[[redirects]]
+  from = "/contact"
+  to = "/contact.html"
+  status = 200
